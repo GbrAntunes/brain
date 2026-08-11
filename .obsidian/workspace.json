@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "78a29a8fcbb19e2a",
+        "id": "536077a9292fb330",
         "type": "tabs",
         "children": [
           {
-            "id": "94815a830802c6f6",
+            "id": "e890f48b3bfb8796",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "type": "split-diff-view",
+              "state": {
+                "aFile": ".obsidian/workspace.json",
+                "bFile": ".obsidian/workspace.json",
+                "aRef": ""
+              },
+              "icon": "diff",
+              "title": "Diff: workspace.json  (Working Tree)"
             }
           }
         ]
@@ -192,7 +196,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "94815a830802c6f6",
+  "active": "e890f48b3bfb8796",
   "lastOpenFiles": [
     "Software/04-conceitos/Teorema PACELC.md",
     "Software/04-conceitos/Teorema CAP.md",

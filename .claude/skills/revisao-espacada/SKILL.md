@@ -41,9 +41,11 @@ lacuna de nota vira linha nos dois — narrada no daily, acionável no inbox.
 
 ## Fase 0 — Sincronizar e situar
 
-1. `git pull` na raiz da vault. Se der conflito ou falhar, **pare** e avise (o daily muda nas duas
+1. Cheque se existe remote: `git remote`. Se a saída for **vazia**, pule o passo 2 sem comentar —
+   vault local é configuração válida, não erro.
+2. `git pull` na raiz da vault. Se der conflito ou falhar, **pare** e avise (o daily muda nas duas
    máquinas; conflito é esperado se esqueceu de dar push antes).
-2. Data de hoje: `date +%Y-%m-%d`.
+3. Data de hoje: `date +%Y-%m-%d`.
 
 ## Fase 1 — Escolher o tema
 
@@ -105,8 +107,20 @@ Pergunte ao usuário, de forma direta:
    trabalho de escrever é do usuário. Conceito que apareceu na sessão e nem tem nota ainda também
    cabe aqui (`- [ ] criar nota [[Composite Index]] — ...`).
 
-3. `git add` **apenas** `07-daily/daily.md` e `00-inbox/inbox.md`, commit (`estudo: <Nome>`) e
-   `push`. Se o push falhar, mostre o erro e as mudanças locais — não tente resolver conflito sozinho.
+3. `git add` **apenas** `07-daily/daily.md` e `00-inbox/inbox.md` e commit (`estudo: <Nome>`).
+   Só então `push`, e **apenas se houver remote** (`git remote`) — sem remote, o commit local
+   encerra o passo. Se o push falhar, mostre o erro e as mudanças locais; não tente resolver
+   conflito sozinho.
+
+   **Falha de permissão (`403`, `Permission denied`) tem uma causa provável e específica:** o vault
+   foi clonado do repositório de outra pessoa e o `origin` nunca foi trocado. Não trate como erro
+   genérico — diga isso em uma linha, mostre a saída de `git remote -v` e ofereça a correção:
+
+   ```bash
+   git remote set-url origin https://github.com/<usuário>/<repo>.git   # ou: git remote remove origin
+   ```
+
+   Deixe claro que **a sessão não se perdeu**: o commit local já está feito e sobe no próximo push.
 4. Encerre em uma linha (tema estudado). Não puxe outra rodada a menos que o usuário peça.
 
 ## O que esta skill NÃO faz

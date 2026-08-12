@@ -1,0 +1,7 @@
+# Estado da janela do Obsidian (abas abertas, divisão de painéis, arquivo ativo).
+# É específico de cada máquina e muda a cada interação com a interface — versionar
+# gera ruído nos commits e conflitos no pull da Fase 0 da skill.
+# O resto de .obsidian/ continua versionado de propósito: plugins, tema e templates
+# são configuração que quem clona o vault deve receber.
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json

@@ -20,6 +20,13 @@
         "a": 1,
         "rgb": 10551122
       }
+    },
+    {
+      "query": "path:Software path:Software/04-conceitos/Testes  ",
+      "color": {
+        "a": 1,
+        "rgb": 13319679
+      }
     }
   ],
   "collapse-display": false,

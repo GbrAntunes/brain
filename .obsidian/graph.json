@@ -11,7 +11,14 @@
       "query": "path:\"Software/04-conceitos/Banco de dados\"  ",
       "color": {
         "a": 1,
-        "rgb": 14701138
+        "rgb": 16752691
+      }
+    },
+    {
+      "query": "path:Software/04-conceitos/Algoritmos  ",
+      "color": {
+        "a": 1,
+        "rgb": 10551122
       }
     }
   ],
@@ -25,6 +32,6 @@
   "repelStrength": 10,
   "linkStrength": 0.200780487804878,
   "linkDistance": 287,
-  "scale": 0.9999999999999983,
+  "scale": 0.999999999999998,
   "close": true
 }

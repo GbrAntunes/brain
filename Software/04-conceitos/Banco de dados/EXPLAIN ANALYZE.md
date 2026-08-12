@@ -1,5 +1,5 @@
 Para entender o custo de uma query, podemos analisar dois dados importantes: o plano de execução e o custo da execução.
-Para isso, [[Sistema gerenciador de banco de dados - SGBD]] como o [[Postgresql]] dispõem de dois comandos importantes: `EXPLAIN` e `ANALYZE`.
+Para isso, [[SGBD]] como o [[Postgresql]] dispõem de dois comandos importantes: `EXPLAIN` e `ANALYZE`.
 
 ### EXPLAIN
 O Explain exibe um plano de execução para a query informada

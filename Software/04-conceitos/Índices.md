@@ -27,3 +27,4 @@ O índice deve ser escolhido com base no comportamento da aplicação. A depende
 - Colunas usadas frequentemente nos seus `where` são bons candidatos a serem indexados
 - Colunas de ligação como `FK` devem quase sempre, serem indexadas para `JOIN` mais rápidos
 - Tabelas que são sempre usadas com uma ordenação default (como ordenado por nomes ou dados mais frequentes) podem indexar os atributos utilizados para a ordenação
+- Caso a entidade sofra consideravelmente mais operações de leitura do que de alteração de dados, os índices são bem-vindos pois ==tornam a busca por informações mais rápidas, mas as alterações de dados mais lentas==. Isso ocorre pois índices são salvos em uma estrutura de dados à parte (no caso do Postgres, b-tree) e alterar dados envolve alterar também essa estrutura de dados.

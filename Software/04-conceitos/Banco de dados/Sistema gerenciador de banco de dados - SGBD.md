@@ -3,5 +3,5 @@ Um SGBD é um sistema que fornece meios para alterar, editar, atualizar, etc. um
 
 ### Exemplos de SGBD
 MySql
-[[Software/04-conceitos/Postgresql|Postgresql]]
+[[Postgresql|Postgresql]]
 MongoDB

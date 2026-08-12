@@ -8,7 +8,7 @@ Todos os [^1]nós mostram os mesmos dados ao mesmo tempo. Uma leitura sempre ret
 Cada requisição recebe uma resposta sem erros, mesmo que os dados possam estar desatualizados.
 
 #### Partition (P)
-O sistema continua funcionando apesar de perdas ou atrasos de mensagens na rede entre os nós. "Partição" aqui se entende como um corte na comunicação entre dois nós, e esse critério avalia a tolerência a esse corte. Vale lembrar que essa característica não é opcional, o sistema ou é CP ou é AP, caso tirássemos o P, estaríamos considerando que a aplicação pararia de funcionar corretamente.
+O sistema continua funcionando apesar de perdas ou atrasos de mensagens na rede entre os nós. "Partição" aqui se entende como um corte na comunicação entre dois nós, e esse critério avalia a tolerência a esse corte. Vale lembrar que ==essa característica não é opcional==, o sistema ou é CP ou é AP, caso tirássemos o P, estaríamos considerando que a aplicação pararia de funcionar corretamente.
 
 [^1]: Cada uma das máquinas ou indivíduos (como containers docker) que compõem o sistema. Para nosso contexto, podemos imaginar que um nó é uma base de dados em São Paulo e uma cópia dessa base que está em Brasília.
 

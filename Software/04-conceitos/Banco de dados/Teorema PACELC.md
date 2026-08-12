@@ -5,7 +5,7 @@ Então em caso de partição entre os nós, o PACELC te dá a mesma resposta que
 Para além do CAP já discutido, o PACELC adiciona dois novos integrantes:
 ### Else (E)
 O sistema opera sem falhas de rede
-#### Latency (L)
+### Latency (L)
 O sistema prioriza respostas rápidas
 
 ### Como ler as siglas
@@ -16,4 +16,4 @@ Um sistema sendo representado pelo PACELC será sempre a combinação entre duas
 Uma informação importante que a sigla do E nos dá é a configuração do sistema: caso usemos EC, temos uma replicação de dados síncrona; caso use EL, temos uma configuração assíncrona.
 ### Exemplos práticos
 - PA/EL - Se houver partição, prioriza availability. Caso não haja partição, prioriza latência. Um exemplo é o Amazon DynamoDB, tolerante quando tem algum problema de partição e rápido quando está tudo certo.
-- PC/EC - Se houver partição ou não, prioriza consistência. Sistemas bancários são bons exemplos, como o CockroachDB e a maioria dos bancos tradicionais como o [[Software/04-conceitos/Postgresql|Postgresql]].
+- PC/EC - Se houver partição ou não, prioriza consistência. Sistemas bancários são bons exemplos, como o CockroachDB e a maioria dos bancos tradicionais como o [[Postgresql|Postgresql]].

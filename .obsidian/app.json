@@ -8,5 +8,6 @@
   "showLineNumber": false,
   "showIndentGuide": true,
   "rightToLeft": false,
-  "attachmentFolderPath": "./"
+  "attachmentFolderPath": "./",
+  "spellcheck": false
 }

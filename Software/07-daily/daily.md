@@ -8,7 +8,7 @@ Insight Um índice não é automaticamente bom.
 Preciso entender seletividade e o query planner.
 ### Quero investigar
 [[EXPLAIN ANALYZE]]
-[[Composite Index]]
+[[Índice composto]]
 
 ## 2026-08-11
 - **Tema:** [[Índices]]

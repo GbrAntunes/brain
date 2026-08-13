@@ -6,3 +6,6 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [x] [[Teorema CAP]] — dizer que P não é opcional em sistema distribuído: a escolha real é CP ou AP, e "CA" só descreve um nó só
 - [x] [[Teorema PACELC]] — explicar o mecanismo do `E`: replicação síncrona (EC) vs assíncrona (EL), e que a sigla é da *configuração*, não do produto (Postgres com réplica async = PC/EL)
 - [ ] criar nota [[Quórum]] — a regra `R + W > N` e como mexer em W/R desliza o sistema entre EC e EL
+- [ ] [[B-tree]] — explicar o range: os bancos usam B+tree, dados nas folhas e folhas encadeadas, então é uma descida só + varredura lateral até sair do intervalo
+- [ ] [[B-tree]] — contrastar com hash em vez de só citar: hash destrói a ordem, logo não serve pra range, `ORDER BY`, `MIN`/`MAX` nem `LIKE 'abc%'`
+- [ ] [[B-tree]] — descrever a estrutura: cada nó tem várias chaves (não é binária), árvore rasa e larga, busca logarítmica; e a escrita é inserção localizada na folha + split ocasional, não rebuild

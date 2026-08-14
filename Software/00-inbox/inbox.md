@@ -9,3 +9,6 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[B-tree]] — explicar o range: os bancos usam B+tree, dados nas folhas e folhas encadeadas, então é uma descida só + varredura lateral até sair do intervalo
 - [ ] [[B-tree]] — contrastar com hash em vez de só citar: hash destrói a ordem, logo não serve pra range, `ORDER BY`, `MIN`/`MAX` nem `LIKE 'abc%'`
 - [ ] [[B-tree]] — descrever a estrutura: cada nó tem várias chaves (não é binária), árvore rasa e larga, busca logarítmica; e a escrita é inserção localizada na folha + split ocasional, não rebuild
+- [ ] [[Transaction]] — nível de isolamento: a nota trata isolamento como binário; falta que o default (`READ COMMITTED`) não impede decisão sobre dado velho, e as saídas (`FOR UPDATE`, `SERIALIZABLE`, guarda no `WHERE`)
+- [ ] [[Transaction]] — mecanismo da durabilidade: WAL gravado e `fsync` antes do `COMMIT` responder ok; log sequencial vs escrita aleatória nas páginas de dados
+- [ ] [[Transaction]] — em "como ponderar": transação curta, sem chamada externa dentro do `BEGIN` (trava linha + segura conexão do pool, e `ROLLBACK` não desfaz efeito fora do banco)

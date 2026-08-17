@@ -16,3 +16,17 @@ Os valores da árvore estão apenas nas folhas, e os nós funcionam apenas como 
 - Buscas pontuais
 
 Outras alterantivas são o hash e o Composite
+
+### Contraste com hash
+O hash é ótimo para igualdade (`WHERE email = 'x'`) e, em tese, mais direto que percorrer a árvore. Mas ele **destrói a ordem**: a função de hash espalha os valores propositalmente, então valores vizinhos (10, 11, 12) caem em posições sem relação nenhuma entre si.
+
+Sem ordem, o hash não atende:
+
+| Operação | Por quê |
+| -------- | ------- |
+| `WHERE idade BETWEEN 10 AND 40` | não existe "próximo valor" para percorrer |
+| `ORDER BY name` | o índice não entrega os dados ordenados |
+| `MIN` / `MAX` | não há primeira nem última folha |
+| `LIKE 'abc%'` | prefixo é um range disfarçado (`>= 'abc'` e `< 'abd'`) |
+
+É por isso que o B+tree é o default do Postgres: as folhas ficam ordenadas e encadeadas, então achar o início do range e caminhar pelas folhas resolve todos os casos acima. O hash só compensa quando a coluna é usada **exclusivamente** com `=`.

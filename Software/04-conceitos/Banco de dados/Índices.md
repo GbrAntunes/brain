@@ -25,6 +25,10 @@ CREATE UNIQUE INDEX idx_usuarios_email ON users(email);
 ### Como escolher um bom índice
 O índice deve ser escolhido com base no comportamento da aplicação. A depender de como sua aplicação vai buscar pelos dados, você escolhe os índices. Se você criar um índice para `status` que provavelmente é um ENUM `active | inactive` o banco ainda vai precisar varrer 80% da base e provavelmente nem vai usar o índice por perceber que fazer o full table scan é mais rápido.
 
+#### Sobre cardinalidade e seletividade
+Por que índice em FK e não em status? Status com ENUM `active | inactive` é cardinalidade 2; email é cardinalidade 1 milhão.
+**Um índice só compensa quando o predicado elimina a grande maioria das linhas.**
+
 ### Como considerar o uso de índices
 - Usar índices torna a **leitura** (select) mais rápida;
 - Usar índices torna a **alteração dos dados** (insert, update, delete) mais lenta;

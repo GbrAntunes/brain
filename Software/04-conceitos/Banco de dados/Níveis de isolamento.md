@@ -13,7 +13,7 @@ BEGIN;
 COMMIT;
 ```
 
-Estar dentro de uma transação não impediu a decisão sobre um dado desatualizado. Isso é *read skew* / *lost update*.
+Estar dentro de uma transação não impediu a decisão sobre um dado desatualizado. Isso é *read skew* / *[[lost update]]*.
 
 ### As saídas
 - **`SELECT ... FOR UPDATE`**: trava as linhas lidas até o fim da transação. Quem tentar ler com `FOR UPDATE` espera. É o mais comum e o mais barato.

@@ -13,6 +13,9 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[lost update]] — completar "sistema de versões": o `UPDATE` com a versão no `WHERE`, a checagem de rowcount e o retry relendo (e tirar a frase de versão da seção de lock pessimista)
 - [ ] [[lost update]] — no lock pessimista, dizer o que B lê quando a trava é liberada e que `FOR UPDATE` não bloqueia `SELECT` comum
 - [ ] [[lost update]] — critério de escolha entre as três: quando o cálculo cabe no SQL, quando há chamada externa, frequência de conflito
+- [ ] [[Índice composto]] — explicar o porquê da ordem: ordenado pela 1ª coluna, 2ª só dentro de cada valor da 1ª (prefixo à esquerda)
+- [ ] [[Índice composto]] — deixar claro que a ordem que importa é a da definição do índice, não a do `WHERE`
+- [ ] [[Índice composto]] — critério pra escolher a ordem das colunas (consultas a atender + seletividade da 1ª coluna), com link pra [[Índices]]
 # Sugestões de estudo
 ---
 - [ ] Design Patterns

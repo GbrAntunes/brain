@@ -9,5 +9,6 @@
   "showIndentGuide": true,
   "rightToLeft": false,
   "attachmentFolderPath": "./",
-  "spellcheck": false
+  "spellcheck": false,
+  "promptDelete": false
 }

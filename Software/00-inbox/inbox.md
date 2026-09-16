@@ -16,6 +16,9 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[Índice composto]] — explicar o porquê da ordem: ordenado pela 1ª coluna, 2ª só dentro de cada valor da 1ª (prefixo à esquerda)
 - [ ] [[Índice composto]] — deixar claro que a ordem que importa é a da definição do índice, não a do `WHERE`
 - [ ] [[Índice composto]] — critério pra escolher a ordem das colunas (consultas a atender + seletividade da 1ª coluna), com link pra [[Índices]]
+- [ ] [[Quórum]] — explicar *por que* `R + W > N` funciona: sobreposição garantida entre o conjunto escrito e o lido, e por que `>=` não basta (N=4, W=2, R=2 admite conjuntos disjuntos)
+- [ ] [[Quórum]] — a leitura volta com `R` respostas que podem divergir; é a versão/timestamp que escolhe a atual (mesmo mecanismo da coluna `version` de [[lost update]])
+- [ ] [[Quórum]] — critério pra desbalancear `R` e `W` (número pequeno pra operação frequente) e o custo de `W = N`: escrita para se uma réplica cai, latência refém da mais lenta — linkar [[Teorema PACELC]]
 # Sugestões de estudo
 ---
 - [ ] Design Patterns

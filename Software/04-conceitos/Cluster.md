@@ -1,0 +1,2 @@
+Um cluster é, tradicionalmente, um conjunto de máquinas que trabalham juntas para uma determinada operação.
+Em [[Sistemas distribuídos]], um cluster costuma configurar um conjunto de réplicas: cópias de um mesmo serviço ou base de dados que garantem robustez e consistência daquela operação.

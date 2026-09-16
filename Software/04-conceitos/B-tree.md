@@ -1,9 +1,11 @@
 Estrutura padrão utilizada para [[Índices]] em banco de dados.
 
-![[Pasted image 20260817101848.png]]
+
 
 ### B+Tree
 Uma especificidade importante: os bancos de dados usam, principalmente a versão `b+tree`
+
+![[Pasted image 20260817101848.png]]
 
 #### B-tree
 Os valores da árvore podem estar tanto em um nó, quanto em uma folha

@@ -19,6 +19,9 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[Quórum]] — explicar *por que* `R + W > N` funciona: sobreposição garantida entre o conjunto escrito e o lido, e por que `>=` não basta (N=4, W=2, R=2 admite conjuntos disjuntos)
 - [ ] [[Quórum]] — a leitura volta com `R` respostas que podem divergir; é a versão/timestamp que escolhe a atual (mesmo mecanismo da coluna `version` de [[lost update]])
 - [ ] [[Quórum]] — critério pra desbalancear `R` e `W` (número pequeno pra operação frequente) e o custo de `W = N`: escrita para se uma réplica cai, latência refém da mais lenta — linkar [[Teorema PACELC]]
+- [ ] [[Problema n+1]] — deixar explícito que batching dá 2 consultas (lista + `IN` com os ids, agrupando em memória) e não é paginação; explicar por que cada ida ao banco custa (round trip) e revisar a conta da home (10 mil × 15 × 51 ≠ 4,5 mi)
+- [ ] [[Problema n+1]] — o contraponto do eager: `eager` na entity vale pra toda consulta e vira over-fetching; preferir carregar por consulta (`relations`); ajustar que no TypeORM o padrão é não carregar, não lazy
+- [ ] [[Cluster]] — expandir além da definição: o que as réplicas resolvem, como decidem quem responde, e linkar [[Quórum]] e [[Sistemas distribuídos]]
 # Sugestões de estudo
 ---
 - [ ] Design Patterns

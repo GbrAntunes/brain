@@ -13,15 +13,15 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[lost update]] — completar "sistema de versões": o `UPDATE` com a versão no `WHERE`, a checagem de rowcount e o retry relendo (e tirar a frase de versão da seção de lock pessimista)
 - [ ] [[lost update]] — no lock pessimista, dizer o que B lê quando a trava é liberada e que `FOR UPDATE` não bloqueia `SELECT` comum
 - [ ] [[lost update]] — critério de escolha entre as três: quando o cálculo cabe no SQL, quando há chamada externa, frequência de conflito
-- [ ] [[Índice composto]] — explicar o porquê da ordem: ordenado pela 1ª coluna, 2ª só dentro de cada valor da 1ª (prefixo à esquerda)
 - [ ] [[Índice composto]] — deixar claro que a ordem que importa é a da definição do índice, não a do `WHERE`
 - [ ] [[Índice composto]] — critério pra escolher a ordem das colunas (consultas a atender + seletividade da 1ª coluna), com link pra [[Índices]]
 - [ ] [[Quórum]] — explicar *por que* `R + W > N` funciona: sobreposição garantida entre o conjunto escrito e o lido, e por que `>=` não basta (N=4, W=2, R=2 admite conjuntos disjuntos)
 - [ ] [[Quórum]] — a leitura volta com `R` respostas que podem divergir; é a versão/timestamp que escolhe a atual (mesmo mecanismo da coluna `version` de [[lost update]])
 - [ ] [[Quórum]] — critério pra desbalancear `R` e `W` (número pequeno pra operação frequente) e o custo de `W = N`: escrita para se uma réplica cai, latência refém da mais lenta — linkar [[Teorema PACELC]]
-- [ ] [[Problema n+1]] — deixar explícito que batching dá 2 consultas (lista + `IN` com os ids, agrupando em memória) e não é paginação; explicar por que cada ida ao banco custa (round trip) e revisar a conta da home (10 mil × 15 × 51 ≠ 4,5 mi)
-- [ ] [[Problema n+1]] — o contraponto do eager: `eager` na entity vale pra toda consulta e vira over-fetching; preferir carregar por consulta (`relations`); ajustar que no TypeORM o padrão é não carregar, não lazy
 - [ ] [[Cluster]] — expandir além da definição: o que as réplicas resolvem, como decidem quem responde, e linkar [[Quórum]] e [[Sistemas distribuídos]]
+- [ ] [[EXPLAIN ANALYZE]] — `cost`/`rows`/`width` já saem do `EXPLAIN` puro (são estimativa do planner); o que o `ANALYZE` acrescenta é a coluna do real (`actual time`, `rows`, `loops`) — e o valor está em comparar estimado × real
+- [ ] [[EXPLAIN ANALYZE]] — incluir `Rows Removed by Filter`: é ele que diz se vale índice (ler 1 mi e devolver 3 vs devolver 400 mil), linkando a seletividade de [[Índices]]
+- [ ] [[EXPLAIN ANALYZE]] — separar `ANALYZE` (comando que recoleta estatísticas) de `EXPLAIN ANALYZE`; estatística velha é a causa usual de estimado ≠ real. Citar `BEGIN; ... ROLLBACK;` como forma de medir DML sem persistir ([[Transaction]])
 # Sugestões de estudo
 ---
 - [ ] Design Patterns

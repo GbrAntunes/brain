@@ -24,7 +24,7 @@ Continuamos fazendo uma busca para trazer a lista e depois, trazemos todos os da
 	   ```
 
 #### Eager Loading
-Se você sabe que vai precisar desses dados, nesse modelo de entidade principal e lista de dados para essa entidade, **carregue-os antecipadamente**
+Se você sabe que vai precisar desses dados, nesse modelo de entidade principal e lista de dados para essa entidade, **carregue-os antecipadamente**. Cuidado com over-fetching nesse caso, preferencialmente, utilizar o `relations: [items]` e não o eager na entity.
 
 > [!info]
 > Nota: por padrão, muitos ORMs usam lazy loading por padrão. Esteja ciente disso ao utilizar esse tipo de ferramenta.

@@ -3,7 +3,6 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 ---
 # Melhorias
 
-- [x] Adicionar conceito de [[lost update]] 
 - [ ] [[Níveis de isolamento]] — nomear *dirty read* como a única garantia do `READ COMMITTED`
 - [ ] [[Níveis de isolamento]] — incluir `REPEATABLE READ`; a nota promete "níveis" mas só mostra dois
 - [ ] [[Níveis de isolamento]] — ligar o retry do `SERIALIZABLE` a [[Idempotência]]
@@ -15,11 +14,9 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[lost update]] — critério de escolha entre as três: quando o cálculo cabe no SQL, quando há chamada externa, frequência de conflito
 - [ ] [[Índice composto]] — deixar claro que a ordem que importa é a da definição do índice, não a do `WHERE`
 - [ ] [[Índice composto]] — critério pra escolher a ordem das colunas (consultas a atender + seletividade da 1ª coluna), com link pra [[Índices]]
-- [ ] [[Quórum]] — explicar *por que* `R + W > N` funciona: sobreposição garantida entre o conjunto escrito e o lido, e por que `>=` não basta (N=4, W=2, R=2 admite conjuntos disjuntos)
 - [ ] [[Quórum]] — a leitura volta com `R` respostas que podem divergir; é a versão/timestamp que escolhe a atual (mesmo mecanismo da coluna `version` de [[lost update]])
 - [ ] [[Quórum]] — critério pra desbalancear `R` e `W` (número pequeno pra operação frequente) e o custo de `W = N`: escrita para se uma réplica cai, latência refém da mais lenta — linkar [[Teorema PACELC]]
 - [ ] [[Cluster]] — expandir além da definição: o que as réplicas resolvem, como decidem quem responde, e linkar [[Quórum]] e [[Sistemas distribuídos]]
-- [ ] [[EXPLAIN ANALYZE]] — `cost`/`rows`/`width` já saem do `EXPLAIN` puro (são estimativa do planner); o que o `ANALYZE` acrescenta é a coluna do real (`actual time`, `rows`, `loops`) — e o valor está em comparar estimado × real
 - [ ] [[EXPLAIN ANALYZE]] — incluir `Rows Removed by Filter`: é ele que diz se vale índice (ler 1 mi e devolver 3 vs devolver 400 mil), linkando a seletividade de [[Índices]]
 - [ ] [[EXPLAIN ANALYZE]] — separar `ANALYZE` (comando que recoleta estatísticas) de `EXPLAIN ANALYZE`; estatística velha é a causa usual de estimado ≠ real. Citar `BEGIN; ... ROLLBACK;` como forma de medir DML sem persistir ([[Transaction]])
 # Sugestões de estudo

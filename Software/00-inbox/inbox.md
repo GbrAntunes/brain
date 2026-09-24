@@ -19,6 +19,8 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[Cluster]] — expandir além da definição: o que as réplicas resolvem, como decidem quem responde, e linkar [[Quórum]] e [[Sistemas distribuídos]]
 - [ ] [[EXPLAIN ANALYZE]] — incluir `Rows Removed by Filter`: é ele que diz se vale índice (ler 1 mi e devolver 3 vs devolver 400 mil), linkando a seletividade de [[Índices]]
 - [ ] [[EXPLAIN ANALYZE]] — separar `ANALYZE` (comando que recoleta estatísticas) de `EXPLAIN ANALYZE`; estatística velha é a causa usual de estimado ≠ real. Citar `BEGIN; ... ROLLBACK;` como forma de medir DML sem persistir ([[Transaction]])
+- [ ] [[Testes de software]] — preencher "Pirâmide de teste" e "Cobertura" (hoje só títulos): proporção entre os níveis e o que a cobertura mede/não garante
+- [ ] [[Testes de software]] — trade-off de custo manual × automatizado (custo de escrita × custo por execução)
 # Sugestões de estudo
 ---
 - [ ] Design Patterns

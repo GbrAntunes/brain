@@ -1,0 +1,1 @@
+Testa o "contrato" entre diferentes partes de um sistema. Em um sistema onde a função A realiza um cálculo em centavos e uma função B realiza o cálculo em reais, ambas podem ter cobertura de testes unitário, passando, mas quando elas conversam o resultado é desastroso. 

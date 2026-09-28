@@ -11,4 +11,9 @@ Dado um pedido com:
 - Produto B = R$50
 Quando calcular o total (`calculateOrderTotal()`), o resultado deve ser R$150
 
-**Não precisa de banco, HTTP ou serviços externos**
+**Não depende de banco, HTTP ou serviços externos**
+
+# Vantagens
+É extramemente simples, verificar se a função calcularDezPorcento() faz `f(x)=x*0.1` e testar se o input for 10, o output será 1.
+É um tipo de teste extremamente barato, simples de manter e que geralmente é o que é feito em maior número na aplicação.
+A resposta desse teste também é mais precisa. É como se déssemos um zoom na aplicação para investigar no detalhe. Caso um teste unitário falhe, você sabe exatamente quais linhas olhar.

@@ -20,7 +20,9 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[EXPLAIN ANALYZE]] — incluir `Rows Removed by Filter`: é ele que diz se vale índice (ler 1 mi e devolver 3 vs devolver 400 mil), linkando a seletividade de [[Índices]]
 - [ ] [[EXPLAIN ANALYZE]] — separar `ANALYZE` (comando que recoleta estatísticas) de `EXPLAIN ANALYZE`; estatística velha é a causa usual de estimado ≠ real. Citar `BEGIN; ... ROLLBACK;` como forma de medir DML sem persistir ([[Transaction]])
 - [ ] [[Testes de software]] — preencher "Pirâmide de teste" e "Cobertura" (hoje só títulos): proporção entre os níveis e o que a cobertura mede/não garante
-- [ ] [[Testes de software]] — trade-off de custo manual × automatizado (custo de escrita × custo por execução)
+- [ ] [[teste de unidade]] — como testar unidade que depende de banco/HTTP: stub via injeção de dependência, e a alternativa melhor (extrair a regra pura, I/O na borda). Distinguir stub/mock/fake/spy
+- [ ] [[teste de unidade]] — o outro lado das vantagens: o que ele não pega (contrato entre unidades — função devolve centavos, outra espera reais) e o mock desatualizado que fica verde para sempre
+- [ ] criar nota [[Partição de equivalência]] (ou seção em teste caixa preta) — critério de parada: classe de equivalência + análise de valor limite, e por que testar `0.1` e `0.37` não acrescenta nada
 # Sugestões de estudo
 ---
 - [ ] Design Patterns

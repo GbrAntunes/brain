@@ -1,6 +1,6 @@
 Os índices são estruturas de dados auxiliares que servem para que um SGBD não precise varrer todo a base até encontrar o dado que precisa. Pode ser tanto um índice simples, quanto um [[Índice composto]]. Por exemplo, em um dicionário, se você está procurando pela palavra "dados", você pode olhar na lateral do livro e ver onde estão as palavras que começam com "d" e aí você começa a procurar por aí. Além disso, você sabe que o dicionário está organizado em ordem alfabética e - portanto - a palavra "dados" deve estar no início das palavras que começam com "d". Graças a essa organização você não precisou procurar nas palavras que começam com "a", "b" e "c".
 
-Ao invés do banco fazer uma varredura completa na base (full table scan), o banco usa o índice para achar o caminho exato do dado no disco quase instantaneamente.
+Ao invés do banco fazer uma varredura completa na base (full table scan), o banco usa o índice para achar o ponteiro que aponta para caminho exato do dado no disco quase instantaneamente.
 
 ### Exemplo prático
 Existe uma tabela `users` contendo um milhão de linhas. Essa tabela conta com os seguintes atributos:
@@ -29,6 +29,19 @@ O índice deve ser escolhido com base no comportamento da aplicação. A depende
 Por que índice em FK e não em status? Status com ENUM `active | inactive` é cardinalidade 2; email é cardinalidade 1 milhão.
 **Um índice só compensa quando o predicado elimina a grande maioria das linhas.**
 
+### Tipos de scan
+A depender de como o query optimizer (ou planner) calcula a query, ele verifica os custos e decide qual algoritmo é o mais adequado para aquela consulta.
+
+> esses são os tipos mais conhecidos, mas há outros
+
+#### Full table (sequential) scan
+Varredura completa da tabela buscando por todos os registros que se encaixem nos filtros aplicados. Ocorre em consultas sem filtros indexados, tabelas muito pequenas ou quando, simplesmente, o custo avaliado é o mais em conta.
+#### Index Scan
+Não há varredura completa da tabela. Um index scan acessa a b-tree, entende em qual direção buscar os dados e, após identificados na árvore, acessa diretamente os endereços de memória de cada registro buscado. É como se você, ao invés de dirigir sem rumo pela cidade buscando seu destino, parasse para pedir direções.
+
+### Quando o índice é ignorado
+- Busca por intervalos como o `BETWEEN` e o `LIKE` (sobre o LIKE, é ignorado em casos onde o início do dado buscado está utilizando '%')
+- Quando a cardinalidade é baixa: casos como coluna `status` que possui apenas dois ou três valores válidos, isso vai fazer com que a tabela possua por exemplo 70% dos valores com um status e 30% com o outro status. Se você busca por um status com 70% de seletividade na tabela o full table scan ainda será mais barato
 ### Como considerar o uso de índices
 - Usar índices torna a **leitura** (select) mais rápida;
 - Usar índices torna a **alteração dos dados** (insert, update, delete) mais lenta;

@@ -21,11 +21,13 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[EXPLAIN ANALYZE]] — separar `ANALYZE` (comando que recoleta estatísticas) de `EXPLAIN ANALYZE`; estatística velha é a causa usual de estimado ≠ real. Citar `BEGIN; ... ROLLBACK;` como forma de medir DML sem persistir ([[Transaction]])
 - [ ] [[Testes de software]] — preencher "Pirâmide de teste" e "Cobertura" (hoje só títulos): proporção entre os níveis e o que a cobertura mede/não garante
 - [ ] [[teste de unidade]] — como testar unidade que depende de banco/HTTP: stub via injeção de dependência, e a alternativa melhor (extrair a regra pura, I/O na borda). Distinguir stub/mock/fake/spy
-- [ ] [[teste de unidade]] — o outro lado das vantagens: o que ele não pega (contrato entre unidades — função devolve centavos, outra espera reais) e o mock desatualizado que fica verde para sempre
+- [x] [[teste de unidade]] — o outro lado das vantagens: o que ele não pega (contrato entre unidades — função devolve centavos, outra espera reais) e o mock desatualizado que fica verde para sempre
 - [ ] criar nota [[Partição de equivalência]] (ou seção em teste caixa preta) — critério de parada: classe de equivalência + análise de valor limite, e por que testar `0.1` e `0.37` não acrescenta nada
 - [ ] [[Postgresql]] — ligar "objeto-relacional" e "estende o SQL" às features que a nota já cita (tipos e funções próprios, outras linguagens), com exemplos concretos (`CREATE TYPE`, `CREATE FUNCTION`, `ON CONFLICT`)
 - [ ] [[Postgresql]] — dizer o que se customiza no [[Teorema PACELC]]: replicação síncrona × assíncrona, e o que cada uma custa
-- [ ] [[Postgresql]] — link `[[MVVC]]` está com typo (o conceito é MVCC)
+- [x] [[Postgresql]] — link `[[MVVC]]` está com typo (o conceito é MVCC)
+- [ ] [[Índices]] — explicar por que FK precisa de índice próprio se a PK do outro lado já tem: direção do JOIN e lookup repetido uma vez por linha do outro lado (Nested Loop)
+- [ ] [[Índices]] — dizer por que o índice perde em predicado pouco seletivo (ponteiro até a tabela = acesso aleatório × Seq Scan sequencial) e que seletividade é do valor filtrado, não só da coluna
 # Sugestões de estudo
 ---
 - [ ] Design Patterns

@@ -35,3 +35,6 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 ---
 - [ ] Design Patterns
 - [ ] Padrão SAGA
+- [ ] [[B-tree]] — o caminho da busca pontual: comparação no nó, descida por um ponteiro, custo logarítmico (árvore rasa e larga) e o salto final da folha pra linha na tabela
+- [ ] [[B-tree]] — por que valores só nas folhas favorece range: descida única até o início + caminhada lateral nas folhas encadeadas, sem voltar pra raiz
+- [ ] [[B-tree]] — o que acontece numa escrita: inserção localizada na folha e split que pode propagar pra cima (não é "remontar a árvore")

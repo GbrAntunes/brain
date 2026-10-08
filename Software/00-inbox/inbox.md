@@ -31,6 +31,9 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[Teorema PACELC]] — o exemplo "Postgres = PC/EC" contradiz a regra de que a sigla é da configuração: dizer qual é o padrão de replicação do Postgres e o que se configura pra chegar em EC
 - [ ] [[Teorema PACELC]] — o EL hoje só aparece como "mais rápido": falta o que se perde (leitura atrasada na réplica e commit confirmado que some no failover) e a saída intermediária *read-your-writes*
 - [ ] [[Teorema CAP]] — explicar quem continua atendendo numa partição CP (o lado com maioria) e por que clusters usam número ímpar de nós, linkando [[Quórum]]
+- [ ] [[Transaction]] — a regra "chamada externa fora do `BEGIN`" não mostra a forma: como quebrar o fluxo em transações curtas em volta da chamada, e o que acontece se o processo cair entre elas
+- [ ] [[Transaction]] — Consistência diz só "estado válido": falta quem define o que é válido e quem garante (o banco ou a aplicação)
+- [ ] [[Transaction]] — o bloco de exemplo tem `BEGIN` aninhado e `COMMIT` depois do `ROLLBACK`; separar em dois exemplos que façam sentido sozinhos
 # Sugestões de estudo
 ---
 - [ ] Design Patterns

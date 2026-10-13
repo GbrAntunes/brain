@@ -32,6 +32,9 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[Transaction]] — a regra "chamada externa fora do `BEGIN`" não mostra a forma: como quebrar o fluxo em transações curtas em volta da chamada, e o que acontece se o processo cair entre elas
 - [ ] [[Transaction]] — Consistência diz só "estado válido": falta quem define o que é válido e quem garante (o banco ou a aplicação)
 - [ ] [[Transaction]] — o bloco de exemplo tem `BEGIN` aninhado e `COMMIT` depois do `ROLLBACK`; separar em dois exemplos que façam sentido sozinhos
+- [ ] [[Tipos comuns de vulnerabilidade]] — sequestro de sessão: faltam as defesas da aplicação (flags do cookie `HttpOnly`/`Secure`, fechar o XSS) e o 2FA aparece como defesa, mas não protege sessão já roubada
+- [ ] [[Tipos comuns de vulnerabilidade]] — CSRF: explicar por que o atacante não tem acesso ao token (o navegador anexa o cookie sozinho; o token precisa ser lido, e a Same-Origin Policy impede)
+- [ ] [[Tipos comuns de vulnerabilidade]] — BAC: nomear *mass assignment* (`req.body` direto no update) e a correção por allowlist de campos
 # Sugestões de estudo
 ---
 - [ ] Design Patterns

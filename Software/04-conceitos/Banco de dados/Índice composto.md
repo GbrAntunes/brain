@@ -5,6 +5,9 @@ Tipo de [[Índices]] que associa duas ou mais colunas de uma tabela em uma únic
 Então se eu busco por todos os devs do departamento 10, o banco de dados vai primeiro encontrar o departamento 10 e nos resultados encontrados, busca pelos devs
 
 A ordem dos índices importam pois a forma como a b-tree está montada precisa ser levada em consideração. Por exemplo, se o meu primerio índice divide a árvore na metade (uma metade da árvore responde ao primeiro índice), dentro dessa metade, agrupado em algum lugar podemos encontrar os dados referentes ao segundo índice.
+
+> A ordem dos filtros do WHERE não importam. O WHERE define uma condição que ou é verdadeira, ou é falsa e é avaliada de uma vez e não por partes
+
 ### Tabela exemplo
 |  id | name   | department_id | role |
 | --: | ------ | ------------: | ---- |

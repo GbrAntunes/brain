@@ -12,6 +12,10 @@ Os valores da árvore podem estar tanto em um nó, quanto em uma folha
 #### B+tree
 Os valores da árvore estão apenas nas folhas, e os nós funcionam apenas como placas de direção: "maior que 20, siga pra ca. Menor que 20, para lá"
 
+### Por que essa diferença?
+No caso de uma busca por range (`BETWEEN 10 AND 40`, por exemplo) uma vez que se encontra o 10, você só precisa "andar para o lado" até encontrar o 40, tudo o que está no caminho é um valor válido para a condição.
+Caso fosse uma b-tree comum, com valores presentes nos nós, o mecanismo precisaria ficar subindo e descendo na árvore para encontrar os valores.
+
 ### Muito bom para
 - Buscas por range
 	- Perceba como o intervalo entre 10 e 40, por exemplo, fica agrupado à esquerda da árvore na imagem

@@ -35,6 +35,9 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[Tipos comuns de vulnerabilidade]] — sequestro de sessão: faltam as defesas da aplicação (flags do cookie `HttpOnly`/`Secure`, fechar o XSS) e o 2FA aparece como defesa, mas não protege sessão já roubada
 - [ ] [[Tipos comuns de vulnerabilidade]] — CSRF: explicar por que o atacante não tem acesso ao token (o navegador anexa o cookie sozinho; o token precisa ser lido, e a Same-Origin Policy impede)
 - [ ] [[Tipos comuns de vulnerabilidade]] — BAC: nomear *mass assignment* (`req.body` direto no update) e a correção por allowlist de campos
+- [ ] [[Idempotência]] — filas *at-least-once*: dizer por que o broker não consegue garantir entrega única (sem ack, não distingue "não processou" de "processou e não confirmou")
+- [ ] [[Idempotência]] — o que fazer com um `in_progress` órfão, quando o processo cai no meio da execução e a chave fica travada
+- [ ] [[Idempotência]] — camada HTTP: quais métodos são idempotentes por definição (`PUT`/`DELETE` × `POST`) e operação absoluta × relativa
 # Sugestões de estudo
 ---
 - [ ] Design Patterns

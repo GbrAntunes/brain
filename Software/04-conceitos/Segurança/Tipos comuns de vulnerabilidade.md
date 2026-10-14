@@ -3,10 +3,12 @@ Verificar no OWASP #10 as principais voltadas para web e vibe coding
 # CSRF
 ## Cross-site Request Forgery
 Um usuário logado em, por exemplo, https://banco.com ao clicar em um link malicioso, pode ter seu cookie de sessão utilizado em uma requisição maliciosa.
+Essa vulnerabilidade explora o mecanismo padrão do navegador, que anexa automaticamente os cookies de banco.com a qualquer requisição destinada a essa url. Portanto, se um site promo-gratis.com tiver um form com action para banco.com, os cookies de banco.com serão enviados automaticamente.
+É exatamente esse mecanismo que o atributo `SameSite` evita., ele faz com que o navegador deixe de anexar o cookie quando a requisição parte de outro site.
 
 ### Como se proteger
 #### Tokens Anti-CSRF
-O servidor gera um token único, secreto e temporário para a sessão do usuário. Em cada requisição que altere dados, esse token é enviado e validado. Como o site do atacante não tem acesso a esse token, o servidor rejeita a requisição
+O servidor gera um token único, secreto e temporário para a sessão do usuário. Em cada requisição que altere dados, esse token é enviado e validado. Como o site do atacante não tem acesso a esse token (pois fica armazenado na página, num campo oculto ou meta-tag), o servidor, ao comparar o token enviado e o token configurado, rejeita a requisição.
 #### Atributo SameSite
 Configuração dos cookies de sesão `SameSite=Strict` ou `SameSite=Lax` impede que o navegador envie o cookie em requisições que partem de sites de terceiros, que é justamente a mecânica do CSRF
 
@@ -33,7 +35,7 @@ Top #1 no ranking OWASP TOP 10, o BAC acontece quando as permissões dos usuári
 ### Como se proteger
 #### Validação no servidor
 - O backend deve validar todas as requisições, ainda que o front tenha "escondido a opção"
-- Além disso, podemos também trabalhar com princípios de menor privilégio, ou seja, fornecer acessos diante da necessidade da aplicação, e não o contrário, bloqueando a medida em que a aplicação vive
+- Além disso, podemos também trabalhar com princípios de menor privilégio, ou seja, fornecer acessos diante da necessidade da aplicação, e não o contrário, bloqueando a medida em que a aplicação vive. Usar allowlist e não blocklist.
 - Utilizar modelos maduros de autenticação como o RBAC (role-based access control) ou o ABAC (attribute-based access control) que definem grupos de permissões e esses grupos são atribuidos aos usuários.
 - Ter rotinas de testes de segurança como SAST, DAST e Pentest na aplicação.
 
@@ -49,3 +51,17 @@ Boa parte das recomendações são mais para os usuários do que para a aplicaç
 - Utilizar navegadores maduros como o Chrome ou Firefox
 
 Para os desenvolvedores, o ideal é disponibilizar autenticação em dois fatores (2FA) na aplicação e se possível, utilizar tecnologias modernas de defesa como o **Device Bound Session Credentials (DBSC)** que atrela a sessão ao hardware do dispositivo.
+
+# Cross-site Scripting
+O XSS é uma vulnerabilidade que permite que códigos maliciosos (JS na maior parte dos casos) seja injetado em aplicações web confiáveis e executado no navegador de outros usuários. Os riscos incluem roubo de cookies de sessão, envio de informações sigilosas para a base do atacante entre outros.
+
+## XSS Refletido (não persistente)
+O script é injetado via requisição HTTP (como um parâmetro em uma URL) e é devolvido imediatamente pelo servidor na resposta para a vítima. Um exemplo seria um sistema que recebe um nome como parâmetro e exibe o nome que recebeu, se o nome contém código malicioso, ele será processado pela aplicação.
+
+## XSS Armazenado (persistente)
+O código malicioso é gravado permanentemente no servidor, em comentários, fóruns ou perfis e é executado automaticamente para qualquer pessoa que abrir a página.
+
+## XSS Baseado em DOM
+A vulnerabilidade acontece inteiramente no lado do cliente, quando o JS da página lê dados da URL ou de elementos da página de forma insegura e os manipula.
+
+### Como se proteger

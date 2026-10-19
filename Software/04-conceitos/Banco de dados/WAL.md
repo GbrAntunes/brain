@@ -1,4 +1,4 @@
-*Write-Ahead Log*: o mecanismo que faz a durabilidade de uma [[Transaction]] ser real e ainda assim rápida.
+*Write-Ahead Log*: o mecanismo que contribui para a durabilidade de uma [[Transaction]] ser real e ainda assim rápida.
 
 ### A regra
 Antes de alterar a página de dados, o banco escreve no log **o que vai fazer**. O `COMMIT` só responde ok depois que esse registro está gravado no disco com `fsync` — não basta estar no buffer do SO, senão uma queda de energia levaria o dado junto.

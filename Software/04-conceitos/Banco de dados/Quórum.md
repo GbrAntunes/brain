@@ -1,5 +1,7 @@
 Número mínimo de réplicas necessárias para que uma operação distribuída seja concluída antes de se declarar a operação como bem-sucedida. O quórum garante consistência necessária para operações distribuídas.
 
+> Esse mecanismo é importante para bancos *leaderless* como o Cassandra, DynamoDB e Riak, que não possuem uma réplica primária. Em bancos como o Postgres que são de líder único, toda operação de escrita é feita na réplica primária e a informação é atualizada para as réplicas (aí sim, dependendo das configurações PACELC). O Quórum existe no Postgres, mas se aplica de outra forma, através do Quórum Commit.
+
 Em um [[Cluster]] contendo 5 réplicas, ao menos 3 precisam responder com sucesso para que uma operação enviada para esse cluster possa responder de forma positiva.
 ### Cálculo padrão de quórum
 `Q = [N/2] + 1`

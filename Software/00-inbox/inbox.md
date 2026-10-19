@@ -40,6 +40,7 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[Idempotência]] — filas *at-least-once*: dizer por que o broker não consegue garantir entrega única (sem ack, não distingue "não processou" de "processou e não confirmou")
 - [ ] [[Idempotência]] — o que fazer com um `in_progress` órfão, quando o processo cai no meio da execução e a chave fica travada
 - [ ] [[Idempotência]] — camada HTTP: quais métodos são idempotentes por definição (`PUT`/`DELETE` × `POST`) e operação absoluta × relativa
+- [ ] criar nota [[MCP - Segurança]] (estudo guiado) — prompt injection via resultado de ferramenta, "tríade letal" (dado privado + conteúdo não confiável + canal de saída), tool poisoning, OAuth nos servidores remotos
 # Sugestões de estudo
 ---
 - [ ] Design Patterns

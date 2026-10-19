@@ -17,6 +17,18 @@ O MCP não elimina o contrato: cada tool declara nome, descrição e um JSON Sch
 
 O protocolo (descobrir ferramentas, chamar, responder) é o mesmo para qualquer servidor, então o client é escrito uma vez só. Analogia: o navegador não tem código para cada site; ele sabe HTTP e HTML.
 
+### Por que não deixar o modelo chamar a API direto?
+Com uma tool genérica (shell + `curl`), o modelo consegue chamar a API REST. A comparação real é **tool genérica × tool específica**, já que a API continua por trás nos dois casos:
+
+|            | `curl` na API                             | tool MCP                            |
+| ---------- | ----------------------------------------- | ----------------------------------- |
+| contrato   | memória do treino ou documentação buscada | `tools/list`, escrito para o modelo |
+| credencial | ao alcance do modelo                      | fica no servidor; o modelo não vê   |
+| permissão  | por comando                               | por ação (ler ≠ enviar)             |
+| onde roda  | só em host com shell                      | qualquer host MCP                   |
+
+Não é sempre melhor: em ambiente de dev, com shell e API conhecida, `curl` ou uma CLI resolve sem o custo de carregar as definições de tools no contexto. O MCP compensa quando importa isolar a credencial, ter permissão por ação ou funcionar em qualquer host.
+
 ### O modelo só lida com texto
 Tudo o que chega ao modelo vira tokens no contexto.
 

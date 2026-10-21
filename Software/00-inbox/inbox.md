@@ -16,6 +16,8 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[lost update]] — critério de escolha entre as três: quando o cálculo cabe no SQL, quando há chamada externa, frequência de conflito
 - [x] [[Índice composto]] — deixar claro que a ordem que importa é a da definição do índice, não a do `WHERE`
 - [ ] [[Índice composto]] — critério pra escolher a ordem das colunas (consultas a atender + seletividade da 1ª coluna), com link pra [[Índices]]
+- [ ] [[Índice composto]] — a nota cita "ordenação" sem mecanismo: quando o índice já entrega na ordem do `ORDER BY` e o `Sort` some do plano (inclusive quando ele não ajuda o filtro)
+- [ ] [[Índice composto]] — composto × dois índices separados: o que o `BitmapAnd` lê a mais, e por que o composto torna redundante o índice simples na 1ª coluna
 - [ ] [[Quórum]] — a leitura volta com `R` respostas que podem divergir; é a versão/timestamp que escolhe a atual (mesmo mecanismo da coluna `version` de [[lost update]])
 - [x] [[Quórum]] — critério pra desbalancear `R` e `W` (número pequeno pra operação frequente) e o custo de `W = N`: escrita para se uma réplica cai, latência refém da mais lenta — linkar [[Teorema PACELC]]
 - [ ] [[Cluster]] — expandir além da definição: o que as réplicas resolvem, como decidem quem responde, e linkar [[Quórum]] e [[Sistemas distribuídos]]

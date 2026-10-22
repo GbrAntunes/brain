@@ -51,3 +51,4 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[B-tree]] — por que valores só nas folhas favorece range: descida única até o início + caminhada lateral nas folhas encadeadas, sem voltar pra raiz
 - [ ] [[B-tree]] — o que acontece numa escrita: inserção localizada na folha e split que pode propagar pra cima (não é "remontar a árvore")
 - [ ] [[WAL]] — deixar explícito que o log guarda o efeito resolvido (página/valor), não o comando SQL, e por que isso torna o redo seguro
+- [ ] criar nota [[Connection pooling - Pooler externo]] — PgBouncer/Supavisor, modos sessão × transação e o que deixa de funcionar no modo transação

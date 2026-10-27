@@ -53,3 +53,6 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[WAL]] — deixar explícito que o log guarda o efeito resolvido (página/valor), não o comando SQL, e por que isso torna o redo seguro
 - [ ] criar nota [[Connection pooling - Pooler externo]] — PgBouncer/Supavisor, modos sessão × transação e o que deixa de funcionar no modo transação
 - [ ] [[lost update]] — update atômico: dizer que a transação concorrente espera a trava e relê o valor commitado (no exemplo, o final é 1300)
+- [ ] [[Problema n+1]] — trocar "problema de algoritmo" pelo mecanismo do custo: um round trip por query (RTT × n), e por que índice não resolve
+- [ ] [[Problema n+1]] — batching com limite por grupo (últimos 5 posts por usuário): `LIMIT` é global; dizer que são 2 consultas agrupadas em memória
+- [ ] [[Problema n+1]] — corrigir a conta da home (4,5 mi → 7,65 mi) e mostrar o número com batching

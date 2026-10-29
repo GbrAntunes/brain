@@ -43,6 +43,8 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[Idempotência]] — o que fazer com um `in_progress` órfão, quando o processo cai no meio da execução e a chave fica travada
 - [ ] [[Idempotência]] — camada HTTP: quais métodos são idempotentes por definição (`PUT`/`DELETE` × `POST`) e operação absoluta × relativa
 - [ ] criar nota [[MCP - Segurança]] (estudo guiado) — prompt injection via resultado de ferramenta, "tríade letal" (dado privado + conteúdo não confiável + canal de saída), tool poisoning, OAuth nos servidores remotos
+- [ ] [[Quórum]] — "garante consistência" sem o mecanismo: sobreposição obrigatória entre o conjunto escrito e o lido, e por que `R + W = N` não basta (conjuntos disjuntos)
+- [ ] [[Quórum]] — no Quorum Commit do Postgres, dizer o que o `ANY k` garante (commit sobrevive ao failover) e o que não garante (leitura em réplica fora do `k` volta desatualizada)
 # Sugestões de estudo
 ---
 - [ ] Design Patterns

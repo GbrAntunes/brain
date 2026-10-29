@@ -3,7 +3,7 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 ---
 # Melhorias
 
-- [ ] [[Níveis de isolamento]] — nomear *dirty read* como a única garantia do `READ COMMITTED`
+- [x] [[Níveis de isolamento]] — nomear *dirty read* como a única garantia do `READ COMMITTED`
 - [ ] [[Níveis de isolamento]] — incluir `REPEATABLE READ`; a nota promete "níveis" mas só mostra dois
 - [ ] [[Níveis de isolamento]] — ligar o retry do `SERIALIZABLE` a [[Idempotência]]
 - [ ] [[Níveis de isolamento]] — exemplo de *write skew* (regra sobre várias linhas, ex.: plantão mínimo) e por que `FOR UPDATE` na própria linha e o guard no `WHERE` não cobrem esse caso
@@ -11,7 +11,7 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[WAL]] — explicar o checkpoint: como o recovery sabe de onde reaplicar
 - [ ] [[WAL]] — replicação síncrona vs assíncrona (commit esperando o ack da réplica) e link pra [[Teorema PACELC]]
 - [ ] [[WAL]] — o custo do `fsync`: latência por commit, e por que o buffer do SO retorna sucesso antes da mídia
-- [ ] [[lost update]] — completar "sistema de versões": o `UPDATE` com a versão no `WHERE`, a checagem de rowcount e o retry relendo (e tirar a frase de versão da seção de lock pessimista)
+- [ ] [[lost update]] — completar "sistema de versões": o `UPDATE` com a versão no `WHERE`, a checagem de rowcount e o retry relendo
 - [ ] [[lost update]] — no lock pessimista, dizer o que B lê quando a trava é liberada e que `FOR UPDATE` não bloqueia `SELECT` comum
 - [ ] [[lost update]] — critério de escolha entre as três: quando o cálculo cabe no SQL, quando há chamada externa, frequência de conflito
 - [x] [[Índice composto]] — deixar claro que a ordem que importa é a da definição do índice, não a do `WHERE`
@@ -35,7 +35,7 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[Teorema CAP]] — explicar quem continua atendendo numa partição CP (o lado com maioria) e por que clusters usam número ímpar de nós, linkando [[Quórum]]
 - [ ] [[Transaction]] — a regra "chamada externa fora do `BEGIN`" não mostra a forma: como quebrar o fluxo em transações curtas em volta da chamada, e o que acontece se o processo cair entre elas
 - [ ] [[Transaction]] — Consistência diz só "estado válido": falta quem define o que é válido e quem garante (o banco ou a aplicação)
-- [ ] [[Transaction]] — o bloco de exemplo tem `BEGIN` aninhado e `COMMIT` depois do `ROLLBACK`; separar em dois exemplos que façam sentido sozinhos
+- [x] [[Transaction]] — o bloco de exemplo tem `BEGIN` aninhado e `COMMIT` depois do `ROLLBACK`; separar em dois exemplos que façam sentido sozinhos
 - [ ] [[Tipos comuns de vulnerabilidade]] — sequestro de sessão: faltam as defesas da aplicação (flags do cookie `HttpOnly`/`Secure`, fechar o XSS) e o 2FA aparece como defesa, mas não protege sessão já roubada
 - [ ] [[Tipos comuns de vulnerabilidade]] — CSRF: explicar por que o atacante não tem acesso ao token (o navegador anexa o cookie sozinho; o token precisa ser lido, e a Same-Origin Policy impede)
 - [ ] [[Tipos comuns de vulnerabilidade]] — BAC: nomear *mass assignment* (`req.body` direto no update) e a correção por allowlist de campos
@@ -55,4 +55,4 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[lost update]] — update atômico: dizer que a transação concorrente espera a trava e relê o valor commitado (no exemplo, o final é 1300)
 - [ ] [[Problema n+1]] — trocar "problema de algoritmo" pelo mecanismo do custo: um round trip por query (RTT × n), e por que índice não resolve
 - [ ] [[Problema n+1]] — batching com limite por grupo (últimos 5 posts por usuário): `LIMIT` é global; dizer que são 2 consultas agrupadas em memória
-- [ ] [[Problema n+1]] — corrigir a conta da home (4,5 mi → 7,65 mi) e mostrar o número com batching
+- [x] [[Problema n+1]] — corrigir a conta da home (4,5 mi → 7,65 mi) e mostrar o número com batching

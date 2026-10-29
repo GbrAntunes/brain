@@ -27,8 +27,6 @@ UPDATE conta SET saldo = 150 WHERE id = 1;
 COMMIT;  -- só aqui a trava é liberada
 ```
 
-Uma vez que A e B tentarem atualizar o saldo usando version 5, vão se conflitar e capturamos o problema.
-
 **⚠️ Risco de deadlock no caso de duas transações travarem linhas em ordens diferentes. Se a transação A trava a linha 1, depois a linha 2 e a transação B trava a linha 2 e depois a 1, o banco vai detectar e abortar uma delas.**
 
 ### sistema de versões:

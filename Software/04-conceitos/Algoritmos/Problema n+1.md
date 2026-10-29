@@ -5,7 +5,7 @@ Digamos que você queira buscar pelos últimos 5 posts de cada usuário em uma p
 1. `GET /users` -> retorna 50 usuários
 2. `GET /users/1/posts`, `GET /users/2/posts`, ..., `GET /users/50/posts` (50 requisições)
 
-Resultado: para renderizar sua tela, você precisou fazer 51 requisições à API. Imagine 10 mil usuários acessando a plataforma no dia, abrindo a home 15 vezes no dia. **São 4.500.000 requisições em um dia SÓ COM A HOME**
+Resultado: para renderizar sua tela, você precisou fazer 51 requisições à API. Imagine 10 mil usuários acessando a plataforma no dia, abrindo a home 15 vezes no dia. **São 7.650.000 requisições em um dia SÓ COM A HOME** (10 mil × 15 × 51). Com batching, são 2 requisições por home: 300.000 no dia
 
 ### Soluções
 #### ORM

@@ -22,15 +22,19 @@ Garante que uma vez confirmada, a transação seja permanente, mesmo em caso de 
 O mecanismo é o [[WAL]]: antes do `COMMIT` responder ok, o registro do que mudou é gravado no log e passa por `fsync`. As páginas de dados podem ser escritas depois — se cair antes, o log é reaplicado na subida. Funciona porque o log é escrita **sequencial** (append no fim do arquivo), enquanto atualizar as páginas de dados seria escrita **aleatória**, espalhada pelo disco.
 
 ### Exemplo
+Transferência confirmada:
 ```SQL
-BEGIN TRANSACTION; 
+BEGIN TRANSACTION;
 	UPDATE accounts SET balance = balance - 500 WHERE account_id = 1;
 	UPDATE accounts SET balance = balance + 500 WHERE account_id = 2;
-	COMMIT;
-		BEGIN TRANSACTION;
-		UPDATE accounts SET balance = balance - 500 WHERE account_id = 1;
-		ROLLBACK;
-		COMMIT;
+COMMIT;
+```
+
+Transferência desfeita (o débito não persiste):
+```SQL
+BEGIN TRANSACTION;
+	UPDATE accounts SET balance = balance - 500 WHERE account_id = 1;
+ROLLBACK;
 ```
 
 - **BEGIN**: Marca o início de uma transaction

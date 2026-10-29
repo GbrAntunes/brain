@@ -1,7 +1,7 @@
 O "I" do ACID em [[Transaction]] não é ligado/desligado: é um botão com níveis, e o default do Postgres (`READ COMMITTED`) é o mais fraco deles.
 
 ### O que o READ COMMITTED garante (e o que não garante)
-Ele garante apenas que você não lê dado não commitado por outra transação. **Não garante** que o dado que você leu continue válido até o `COMMIT`.
+Ele garante apenas que você não lê dado não commitado por outra transação, ou seja, impede o *dirty read*. **Não garante** que o dado que você leu continue válido até o `COMMIT`.
 
 O caso clássico:
 

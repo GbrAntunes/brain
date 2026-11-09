@@ -58,3 +58,5 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[Problema n+1]] — trocar "problema de algoritmo" pelo mecanismo do custo: um round trip por query (RTT × n), e por que índice não resolve
 - [ ] [[Problema n+1]] — batching com limite por grupo (últimos 5 posts por usuário): `LIMIT` é global; dizer que são 2 consultas agrupadas em memória
 - [x] [[Problema n+1]] — corrigir a conta da home (4,5 mi → 7,65 mi) e mostrar o número com batching
+- [ ] [[EXPLAIN ANALYZE]] — mover `cost`/`rows` estimados para a seção do `EXPLAIN` e mostrar como comparar estimado × real
+- [ ] [[EXPLAIN ANALYZE]] — em "Utilidade", incluir a conta frequência × tempo e as razões do índice ignorado (função na coluna, índice de expressão, baixa seletividade)

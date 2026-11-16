@@ -60,3 +60,34 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [x] [[Problema n+1]] — corrigir a conta da home (4,5 mi → 7,65 mi) e mostrar o número com batching
 - [ ] [[EXPLAIN ANALYZE]] — mover `cost`/`rows` estimados para a seção do `EXPLAIN` e mostrar como comparar estimado × real
 - [ ] [[EXPLAIN ANALYZE]] — em "Utilidade", incluir a conta frequência × tempo e as razões do índice ignorado (função na coluna, índice de expressão, baixa seletividade)
+
+# Trilha: da máquina pra produção (GCP)
+---
+Decidido em 2026-11-16. A dor começa quando a aplicação sai do PC: hoje o Cloud Build faz deploy direto a cada push na `main`, sem CI antes e sem homologação, e dev (SQLite) é diferente de prod (Postgres/Supabase). Estudar nesta ordem, porque os ambientes afetam log e build. Caso real pra ancorar as notas: social-one-api (Nest + Cloud Run + Supabase + Clerk + GCS).
+
+Nas notas desta trilha, incluir a seção **Quando usar / quando não usar / sinais de que deu errado**.
+
+**1. Ambientes**
+- [x] criar nota [[Paridade entre ambientes]] — fator X do 12-factor; o que se perde com SQLite em dev e Postgres em prod (isolamento, `FOR UPDATE`, planos de query) e como ter Postgres local
+- [x] criar nota [[Dados de homologação]] — seed, reset completo e de onde vêm os dados (saiu do estudo de paridade)
+- [x] criar nota [[Ambiente local com múltiplos repositórios]] — onde mora o compose com API e front em repos separados (saiu do estudo de paridade)
+- [ ] criar nota [[Configuração por ambiente]] — build once, deploy many: uma imagem promovida entre os ambientes, com config injetada; `NODE_ENV` (modo de build) × ambiente de execução; Secret Manager
+- [ ] criar nota [[Isolamento de ambientes no GCP]] — projeto e service account por ambiente, IAM com mínimo privilégio, instâncias separadas de serviços de terceiros (Supabase, Clerk)
+- [ ] criar nota [[Infraestrutura como código]] — como IaC garante que homologação e prod tenham a mesma infra (mesmo código, variáveis diferentes); Terraform/OpenTofu e estado num bucket do GCS; de onde vem o custo real (curva de aprendizado, não licença)
+- [ ] criar nota [[Promoção e rollback no Cloud Run]] — tag de imagem por commit SHA no Artifact Registry, revisões, traffic split e como voltar uma versão
+
+**2. CI/CD**
+- [ ] criar nota [[CI como gate de deploy]] — o que deve barrar um deploy (lint, typecheck, testes) e onde isso roda no fluxo atual com Cloud Build
+- [ ] criar nota [[Mudança compatível de API]] — expand/contract: o novo convive com o antigo no intervalo entre o deploy da API e o do front; mesmo raciocínio de migration sem downtime
+- [ ] criar nota [[Fluxo de deploy com homologação]] — branch/tag → homologação → prod; quem aprova a promoção e o que é testado em cada etapa
+
+**3. Logs**
+- [ ] criar nota [[Log estruturado]] — JSON no stdout, o que o Cloud Logging interpreta sozinho no Cloud Run (`severity`), níveis de log com critério
+- [ ] criar nota [[Correlação de requests]] — trace id por request (`X-Cloud-Trace-Context`): como ligar todas as linhas de uma requisição
+- [ ] criar nota [[De log a alerta]] — Error Reporting, métricas baseadas em log, alertas; depois [[SLI SLO e error budget]]
+
+**4. Build**
+- [ ] criar nota [[Cache de camadas no Docker]] — por que a ordem das instruções importa, build context e `.dockerignore`, multi-stage (no social-one-api, `npm ci` roda duas vezes e `.git`/`test`/`.sqlite` entram no contexto)
+- [ ] criar nota [[Cache no CI]] — reaproveitar dependências e camadas entre builds no Cloud Build
+- [ ] criar nota [[Build do frontend]] — bundling × typecheck: o que cada um custa e como medir qual etapa pesa
+- Princípio da trilha: **medir antes de otimizar**, o mesmo raciocínio do [[EXPLAIN ANALYZE]]

@@ -27,6 +27,13 @@
         "a": 1,
         "rgb": 13319679
       }
+    },
+    {
+      "query": "path:Software/04-conceitos/Infraestrutura  ",
+      "color": {
+        "a": 1,
+        "rgb": 2909615
+      }
     }
   ],
   "collapse-display": false,

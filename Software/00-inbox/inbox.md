@@ -45,6 +45,9 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] criar nota [[MCP - Segurança]] (estudo guiado) — prompt injection via resultado de ferramenta, "tríade letal" (dado privado + conteúdo não confiável + canal de saída), tool poisoning, OAuth nos servidores remotos
 - [ ] [[Quórum]] — "garante consistência" sem o mecanismo: sobreposição obrigatória entre o conjunto escrito e o lido, e por que `R + W = N` não basta (conjuntos disjuntos)
 - [ ] [[Quórum]] — no Quorum Commit do Postgres, dizer o que o `ANY k` garante (commit sobrevive ao failover) e o que não garante (leitura em réplica fora do `k` volta desatualizada)
+- [ ] [[Testes de software]] — pirâmide: além do custo de manutenção, os motivos de poucos E2E — feedback lento, teste instável (*flaky*) por depender do ambiente inteiro, e falha que não aponta onde está o problema
+- [ ] [[Testes de software]] — test double: dizer qual nível pega a quebra de contrato que o double esconde (integração com o repositório real) e preencher [[teste de integração]], hoje vazia
+- [ ] [[Testes de software]] — "automatizados são mais caros" sem o trade-off: caro pra escrever, quase grátis por execução — é isso que justifica automatizar a regressão
 # Sugestões de estudo
 ---
 - [ ] Design Patterns

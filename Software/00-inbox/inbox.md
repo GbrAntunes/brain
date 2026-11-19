@@ -74,7 +74,7 @@ Nas notas desta trilha, incluir a seção **Quando usar / quando não usar / sin
 - [x] criar nota [[Paridade entre ambientes]] — fator X do 12-factor; o que se perde com SQLite em dev e Postgres em prod (isolamento, `FOR UPDATE`, planos de query) e como ter Postgres local
 - [x] criar nota [[Dados de homologação]] — seed, reset completo e de onde vêm os dados (saiu do estudo de paridade)
 - [x] criar nota [[Ambiente local com múltiplos repositórios]] — onde mora o compose com API e front em repos separados (saiu do estudo de paridade)
-- [ ] criar nota [[Configuração por ambiente]] — build once, deploy many: uma imagem promovida entre os ambientes, com config injetada; `NODE_ENV` (modo de build) × ambiente de execução; Secret Manager
+- [x] criar nota [[Configuração por ambiente]] — build once, deploy many: uma imagem promovida entre os ambientes, com config injetada; `NODE_ENV` (modo de build) × ambiente de execução; Secret Manager
 - [ ] criar nota [[Isolamento de ambientes no GCP]] — projeto e service account por ambiente, IAM com mínimo privilégio, instâncias separadas de serviços de terceiros (Supabase, Clerk)
 - [ ] criar nota [[Infraestrutura como código]] — como IaC garante que homologação e prod tenham a mesma infra (mesmo código, variáveis diferentes); Terraform/OpenTofu e estado num bucket do GCS; de onde vem o custo real (curva de aprendizado, não licença)
 - [ ] criar nota [[Promoção e rollback no Cloud Run]] — tag de imagem por commit SHA no Artifact Registry, revisões, traffic split e como voltar uma versão
@@ -92,5 +92,5 @@ Nas notas desta trilha, incluir a seção **Quando usar / quando não usar / sin
 **4. Build**
 - [ ] criar nota [[Cache de camadas no Docker]] — por que a ordem das instruções importa, build context e `.dockerignore`, multi-stage (no social-one-api, `npm ci` roda duas vezes e `.git`/`test`/`.sqlite` entram no contexto)
 - [ ] criar nota [[Cache no CI]] — reaproveitar dependências e camadas entre builds no Cloud Build
-- [ ] criar nota [[Build do frontend]] — bundling × typecheck: o que cada um custa e como medir qual etapa pesa
+- [ ] criar nota [[Build do frontend]] — bundling × typecheck: o que cada um custa e como medir qual etapa pesa; config em runtime (as `VITE_*` são embutidas no bundle e quebram o "build once" de [[Configuração por ambiente]])
 - Princípio da trilha: **medir antes de otimizar**, o mesmo raciocínio do [[EXPLAIN ANALYZE]]

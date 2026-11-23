@@ -28,7 +28,17 @@
   },
   "appIcons": {},
   "tabIcons": {},
-  "fileIcons": {},
+  "fileIcons": {
+    "Software": {
+      "icon": "lucide-folder-code"
+    },
+    "Software/00-inbox": {
+      "icon": "lucide-check-square"
+    },
+    "Software/04-conceitos": {
+      "icon": "lucide-brain"
+    }
+  },
   "bookmarkIcons": {},
   "tagIcons": {},
   "propertyIcons": {},

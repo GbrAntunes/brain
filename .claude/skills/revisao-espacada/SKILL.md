@@ -94,6 +94,19 @@ quando o usuário escolheu o tema (nesse caso, leia o `daily.md` agora).
   N=5 réplicas. Qual `R` e `W` você escolhe, e por quê?" — e não "o que é quórum?".
 - Pergunta de definição treina recitar a regra, que é justamente o vício que o aquecimento combate.
 - Não revele de que sessão ou de qual erro o gap veio antes da resposta.
+- **Gap persistente pede pista graduada.** Quando o mesmo gap fica aberto em **3 sessões ou
+  mais**, a pergunta aberta já mostrou que não destrava. A partir daí, cada nova pergunta estreita
+  o cenário em direção à peça que falta, um degrau por vez:
+  1. **Recortar o cenário** para que a peça faltante seja o centro, não um detalhe entre vários
+     (ex.: tirar o filtro da query e deixar só o `ORDER BY`, se o que falta é o `Sort`).
+  2. **Nomear a categoria** do que se pede, sem dizer o item ("que nó do plano…", "qual flag do
+     cookie…").
+  3. **Contrastar** duas situações que só diferem na peça faltante ("compare os dois planos: o que
+     um tem e o outro não?").
+
+  A pista aponta pra onde olhar, nunca entrega a resposta. Se a peça sai com pista, registre no
+  daily como **"fechado com pista (degrau N)"**: na próxima vez a pergunta volta um degrau mais
+  aberta, até a resposta sair sem ajuda.
 
 **Corrigir:** uma pergunta por vez, correção em 1–2 frases com base no que o daily registrou como
 certo. Sem aprofundar — se o gap continua aberto, registre e siga. Não abra notas de conceito no

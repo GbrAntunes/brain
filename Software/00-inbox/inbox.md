@@ -94,3 +94,4 @@ Nas notas desta trilha, incluir a seção **Quando usar / quando não usar / sin
 - [ ] criar nota [[Cache no CI]] — reaproveitar dependências e camadas entre builds no Cloud Build
 - [ ] criar nota [[Build do frontend]] — bundling × typecheck: o que cada um custa e como medir qual etapa pesa; config em runtime (as `VITE_*` são embutidas no bundle e quebram o "build once" de [[Configuração por ambiente]])
 - Princípio da trilha: **medir antes de otimizar**, o mesmo raciocínio do [[EXPLAIN ANALYZE]]
+- [ ] [[Postgresql]] — dizer que o padrão é replicação assíncrona (EL sem configurar nada) e corrigir o link `[[MVVC]]` → MVCC

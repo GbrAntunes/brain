@@ -8,9 +8,9 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[Níveis de isolamento]] — ligar o retry do `SERIALIZABLE` a [[Idempotência]]
 - [ ] [[Níveis de isolamento]] — exemplo de *write skew* (regra sobre várias linhas, ex.: plantão mínimo) e por que `FOR UPDATE` na própria linha e o guard no `WHERE` não cobrem esse caso
 - [ ] [[Níveis de isolamento]] — custos do `SERIALIZABLE` além do retry: abortos sob disputa (trabalho refeito) e por que não usá-lo como padrão
-- [ ] [[WAL]] — explicar o checkpoint: como o recovery sabe de onde reaplicar
+- [x] [[WAL]] — explicar o checkpoint: como o recovery sabe de onde reaplicar
 - [ ] [[WAL]] — replicação síncrona vs assíncrona (commit esperando o ack da réplica) e link pra [[Teorema PACELC]]
-- [ ] [[WAL]] — o custo do `fsync`: latência por commit, e por que o buffer do SO retorna sucesso antes da mídia
+- [x] [[WAL]] — o custo do `fsync`: latência por commit, e por que o buffer do SO retorna sucesso antes da mídia
 - [ ] [[lost update]] — completar "sistema de versões": o `UPDATE` com a versão no `WHERE`, a checagem de rowcount e o retry relendo
 - [ ] [[lost update]] — no lock pessimista, dizer o que B lê quando a trava é liberada e que `FOR UPDATE` não bloqueia `SELECT` comum
 - [ ] [[lost update]] — critério de escolha entre as três: quando o cálculo cabe no SQL, quando há chamada externa, frequência de conflito
@@ -55,7 +55,7 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[B-tree]] — o caminho da busca pontual: comparação no nó, descida por um ponteiro, custo logarítmico (árvore rasa e larga) e o salto final da folha pra linha na tabela
 - [ ] [[B-tree]] — por que valores só nas folhas favorece range: descida única até o início + caminhada lateral nas folhas encadeadas, sem voltar pra raiz
 - [ ] [[B-tree]] — o que acontece numa escrita: inserção localizada na folha e split que pode propagar pra cima (não é "remontar a árvore")
-- [ ] [[WAL]] — deixar explícito que o log guarda o efeito resolvido (página/valor), não o comando SQL, e por que isso torna o redo seguro
+- [x] [[WAL]] — deixar explícito que o log guarda o efeito resolvido (página/valor), não o comando SQL, e por que isso torna o redo seguro
 - [ ] criar nota [[Connection pooling - Pooler externo]] — PgBouncer/Supavisor, modos sessão × transação e o que deixa de funcionar no modo transação
 - [ ] [[lost update]] — update atômico: dizer que a transação concorrente espera a trava e relê o valor commitado (no exemplo, o final é 1300)
 - [ ] [[Problema n+1]] — trocar "problema de algoritmo" pelo mecanismo do custo: um round trip por query (RTT × n), e por que índice não resolve

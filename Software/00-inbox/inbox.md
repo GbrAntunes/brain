@@ -42,7 +42,8 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 - [ ] [[Idempotência]] — filas *at-least-once*: dizer por que o broker não consegue garantir entrega única (sem ack, não distingue "não processou" de "processou e não confirmou")
 - [ ] [[Idempotência]] — o que fazer com um `in_progress` órfão, quando o processo cai no meio da execução e a chave fica travada
 - [ ] [[Idempotência]] — camada HTTP: quais métodos são idempotentes por definição (`PUT`/`DELETE` × `POST`) e operação absoluta × relativa
-- [ ] criar nota [[MCP - Segurança]] (estudo guiado) — prompt injection via resultado de ferramenta, "tríade letal" (dado privado + conteúdo não confiável + canal de saída), tool poisoning, OAuth nos servidores remotos
+- [x] criar nota [[MCP - Segurança]] (estudo guiado) — prompt injection via resultado de ferramenta, "tríade letal" (dado privado + conteúdo não confiável + canal de saída), tool poisoning, OAuth nos servidores remotos
+- [ ] criar nota [[MCP - OAuth]] (estudo guiado) — quem é o dono do token em servidor remoto, *confused deputy*, por que o servidor não pode repassar o token do usuário (token passthrough), escopo por usuário via SSO
 - [ ] [[Quórum]] — "garante consistência" sem o mecanismo: sobreposição obrigatória entre o conjunto escrito e o lido, e por que `R + W = N` não basta (conjuntos disjuntos)
 - [ ] [[Quórum]] — no Quorum Commit do Postgres, dizer o que o `ANY k` garante (commit sobrevive ao failover) e o que não garante (leitura em réplica fora do `k` volta desatualizada)
 - [ ] [[Testes de software]] — pirâmide: além do custo de manutenção, os motivos de poucos E2E — feedback lento, teste instável (*flaky*) por depender do ambiente inteiro, e falha que não aponta onde está o problema

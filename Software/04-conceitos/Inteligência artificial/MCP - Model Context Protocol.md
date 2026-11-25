@@ -42,7 +42,7 @@ Tudo o que chega ao modelo vira tokens no contexto.
 - **Client**: componente dentro do host que mantém a conexão com **um** servidor (relação 1:1).
 - **Server**: programa que expõe tools, resources e prompts.
 
-Os servidores são isolados: nenhum enxerga os outros nem a conversa inteira. Cada um só recebe o que o host decide mandar.
+Os servidores são isolados: nenhum enxerga os outros nem a conversa inteira. Cada um só recebe o que o host decide mandar. **O isolamento é dos processos, não do contexto**: as descrições de todos os servidores chegam ao mesmo modelo, e uma pode alterar o uso da tool de outra (shadowing, ver [[MCP - Segurança]]).
 
 ### Primitivas
 | Primitiva     | O que é                                       | Quem decide usar              |

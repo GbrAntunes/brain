@@ -95,3 +95,6 @@ Nas notas desta trilha, incluir a seção **Quando usar / quando não usar / sin
 - [ ] criar nota [[Build do frontend]] — bundling × typecheck: o que cada um custa e como medir qual etapa pesa; config em runtime (as `VITE_*` são embutidas no bundle e quebram o "build once" de [[Configuração por ambiente]])
 - Princípio da trilha: **medir antes de otimizar**, o mesmo raciocínio do [[EXPLAIN ANALYZE]]
 - [ ] [[Postgresql]] — dizer que o padrão é replicação assíncrona (EL sem configurar nada) e corrigir o link `[[MVVC]]` → MVCC
+- [ ] [[MCP - Model Context Protocol]] — primitivas: exemplo de fronteira tool × resource (dado com argumento descoberto no meio da tarefa → tool; contexto fixo como o schema → resource)
+- [ ] [[MCP - Model Context Protocol]] — transporte: desligamento de alguém (stdio = token espalhado em N máquinas, revogar um a um; HTTP + OAuth via SSO = conta desativada corta o acesso) e o que o log do Jira mostra no stdio (dono do token, não se foi humano ou agente)
+- [ ] [[B-tree]] — o `ORDER BY` sai de graça: a caminhada nas folhas já entrega na ordem, então o `Sort` some do plano (hash: `Seq Scan` + `Filter` + `Sort`)

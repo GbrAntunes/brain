@@ -12,14 +12,21 @@ Os valores da árvore podem estar tanto em um nó, quanto em uma folha
 #### B+tree
 Os valores da árvore estão apenas nas folhas, e os nós funcionam apenas como placas de direção: "maior que 20, siga pra ca. Menor que 20, para lá"
 
+### Busca pontual
+Cada nó guarda centenas de chaves ordenadas — as placas —, e cada uma marca a fronteira entre duas faixas. O banco compara o valor buscado, desce por **uma** faixa e descarta todas as outras de uma vez.
+
+Por isso a árvore é **rasa e larga**: 10 milhões de linhas cabem em ~3 níveis (uma árvore binária precisaria de ~24). Na folha, o índice aponta para a linha na tabela, onde estão as demais colunas.
+
 ### Por que essa diferença?
-No caso de uma busca por range (`BETWEEN 10 AND 40`, por exemplo) uma vez que se encontra o 10, você só precisa "andar para o lado" até encontrar o 40, tudo o que está no caminho é um valor válido para a condição.
-Caso fosse uma b-tree comum, com valores presentes nos nós, o mecanismo precisaria ficar subindo e descendo na árvore para encontrar os valores.
+Num range (`BETWEEN 10 AND 40`), a busca desce **uma vez** até o limite inferior e depois anda pelas folhas encadeadas até o superior, sem voltar à raiz — não é uma busca por valor.
+
+Isso só funciona porque os valores estão apenas nas folhas: percorrê-las é percorrer todos os valores, em ordem. Numa B-tree comum, parte dos valores fica nos nós do meio, e o mecanismo teria de subir e descer para não perdê-los.
 
 ### Muito bom para
 - Buscas por range
 	- Perceba como o intervalo entre 10 e 40, por exemplo, fica agrupado à esquerda da árvore na imagem
 - Buscas pontuais
+- `ORDER BY` na coluna indexada: as folhas ordenadas e encadeadas já entregam em ordem, então o `Sort` some do plano (com hash: `Seq Scan` + `Filter` + `Sort`)
 
 Outras alterantivas são o hash e o Composite
 

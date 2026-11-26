@@ -53,8 +53,8 @@ A pasta **Inbox** serve para notas rápidas sobre o que precisa ser feito
 ---
 - [ ] Design Patterns
 - [ ] Padrão SAGA
-- [ ] [[B-tree]] — o caminho da busca pontual: comparação no nó, descida por um ponteiro, custo logarítmico (árvore rasa e larga) e o salto final da folha pra linha na tabela
-- [ ] [[B-tree]] — por que valores só nas folhas favorece range: descida única até o início + caminhada lateral nas folhas encadeadas, sem voltar pra raiz
+- [x] [[B-tree]] — o caminho da busca pontual: comparação no nó, descida por um ponteiro, custo logarítmico (árvore rasa e larga) e o salto final da folha pra linha na tabela
+- [x] [[B-tree]] — por que valores só nas folhas favorece range: descida única até o início + caminhada lateral nas folhas encadeadas, sem voltar pra raiz
 - [ ] [[B-tree]] — o que acontece numa escrita: inserção localizada na folha e split que pode propagar pra cima (não é "remontar a árvore")
 - [x] [[WAL]] — deixar explícito que o log guarda o efeito resolvido (página/valor), não o comando SQL, e por que isso torna o redo seguro
 - [ ] criar nota [[Connection pooling - Pooler externo]] — PgBouncer/Supavisor, modos sessão × transação e o que deixa de funcionar no modo transação
@@ -98,5 +98,5 @@ Nas notas desta trilha, incluir a seção **Quando usar / quando não usar / sin
 - [ ] [[Postgresql]] — dizer que o padrão é replicação assíncrona (EL sem configurar nada) e corrigir o link `[[MVVC]]` → MVCC
 - [ ] [[MCP - Model Context Protocol]] — primitivas: exemplo de fronteira tool × resource (dado com argumento descoberto no meio da tarefa → tool; contexto fixo como o schema → resource)
 - [ ] [[MCP - Model Context Protocol]] — transporte: desligamento de alguém (stdio = token espalhado em N máquinas, revogar um a um; HTTP + OAuth via SSO = conta desativada corta o acesso) e o que o log do Jira mostra no stdio (dono do token, não se foi humano ou agente)
-- [ ] [[B-tree]] — o `ORDER BY` sai de graça: a caminhada nas folhas já entrega na ordem, então o `Sort` some do plano (hash: `Seq Scan` + `Filter` + `Sort`)
+- [x] [[B-tree]] — o `ORDER BY` sai de graça: a caminhada nas folhas já entrega na ordem, então o `Sort` some do plano (hash: `Seq Scan` + `Filter` + `Sort`)
 - [x] [[teste de unidade]] — relógio (`new Date()`) também é dependência externa: o que muda na regra pra que o teste de "expirado" não quebre sozinho com o tempo

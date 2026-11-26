@@ -3,13 +3,13 @@ Dev, homologação e prod devem ser **iguais na forma e diferentes na identidade
 
 ### Iguais na forma, diferentes na identidade
 
-| Tem que ser **igual** (paridade) | Tem que ser **diferente** (isolamento) |
-|---|---|
-| o código, de preferência a mesma imagem | os **dados** |
-| engine e versão do banco | as **credenciais** e segredos |
-| schema e migrations | os **valores** da config (qual banco, qual bucket) |
+| Tem que ser **igual** (paridade)                  | Tem que ser **diferente** (isolamento)                                          |
+| ------------------------------------------------- | ------------------------------------------------------------------------------- |
+| o código, de preferência a mesma imagem           | os **dados**                                                                    |
+| engine e versão do banco                          | as **credenciais** e segredos                                                   |
+| schema e migrations                               | os **valores** da config (qual banco, qual bucket)                              |
 | o formato da config (as mesmas variáveis existem) | as instâncias de serviços externos (Clerk de dev × de prod, gateway em sandbox) |
-| o desenho da infra | tamanho e escala |
+| o desenho da infra                                | tamanho e escala                                                                |
 
 Espelhar um ambiente é espelhar a **forma**, nunca a identidade. Homologação com "as mesmas configurações" de prod aponta pro banco de prod.
 

@@ -11,7 +11,8 @@ Dado um pedido com:
 - Produto B = R$50
 Quando calcular o total (`calculateOrderTotal()`), o resultado deve ser R$150
 
-**Não depende de banco, HTTP ou serviços externos**
+**Não depende de banco, HTTP ou serviços externos (inclusive, o próprio relógio do servidor)**
+Se a regra usa `new Date()`, o mesmo código passa de manhã e falha à tarde. A hora entra por parâmetro, e o teste fixa a data, podendo testar o limite exato (13:59 × 14:00).
 
 # Vantagens
 É extramemente simples, verificar se a função calcularDezPorcento() faz `f(x)=x*0.1` e testar se o input for 10, o output será 1.

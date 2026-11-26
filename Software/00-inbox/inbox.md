@@ -99,3 +99,4 @@ Nas notas desta trilha, incluir a seção **Quando usar / quando não usar / sin
 - [ ] [[MCP - Model Context Protocol]] — primitivas: exemplo de fronteira tool × resource (dado com argumento descoberto no meio da tarefa → tool; contexto fixo como o schema → resource)
 - [ ] [[MCP - Model Context Protocol]] — transporte: desligamento de alguém (stdio = token espalhado em N máquinas, revogar um a um; HTTP + OAuth via SSO = conta desativada corta o acesso) e o que o log do Jira mostra no stdio (dono do token, não se foi humano ou agente)
 - [ ] [[B-tree]] — o `ORDER BY` sai de graça: a caminhada nas folhas já entrega na ordem, então o `Sort` some do plano (hash: `Seq Scan` + `Filter` + `Sort`)
+- [ ] [[teste de unidade]] — relógio (`new Date()`) também é dependência externa: o que muda na regra pra que o teste de "expirado" não quebre sozinho com o tempo
